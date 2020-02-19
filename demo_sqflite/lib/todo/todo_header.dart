@@ -23,12 +23,16 @@ class TodoHeader extends StatelessWidget {
           width: 20,
         ),
         RaisedButton.icon(
+          color: Colors.green,
           onPressed: () {
             bloc.event.add(AddTodoEvent(txtTodoController.text));
             txtTodoController.clear();
           },
           icon: Icon(Icons.add),
           label: Text('Add'),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(4.0),
+          ),
         ),
       ],
     );

@@ -28,6 +28,7 @@ class _TodoListState extends State<TodoList> {
             switch (snapshot.connectionState) {
               case ConnectionState.active:
                 return ListView.builder(
+                  padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
                   itemCount: snapshot.data.length,
                   itemBuilder: (context, index) {
                     return ListTile(
