@@ -17,8 +17,10 @@ class TodoDatabase {
   static const migrationScript = [TodoTable.CREATE_TABLE_QUERY];
 
   init() async {
+    var databasesPath = await getDatabasesPath();
+    String path = join(databasesPath, DB_NAME);
     _database = await openDatabase(
-      join(await getDatabasesPath(), DB_NAME),
+      path,
       onCreate: (db, version) {
         initScript.forEach((script) async => await db.execute(script));
       },

@@ -35,7 +35,10 @@ class TodoTable {
 
   Future<List<Todo>> selectAllTodo() async {
     final Database db = TodoDatabase.instance.database;
-    final List<Map<String, dynamic>> maps = await db.query('todo');
+    final List<Map<String, dynamic>> maps = await db.query(
+      'todo',
+      orderBy: 'content ASC', // Order by column 'content'
+    );
 
     return List.generate(maps.length, (index) {
       return Todo.fromData(

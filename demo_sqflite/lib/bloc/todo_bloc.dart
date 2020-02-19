@@ -41,7 +41,7 @@ class TodoBloc extends BaseBloc {
   }
 
   initData() async {
-    await _todoTable.selectAllTodo();
+    _todoListData = await _todoTable.selectAllTodo();
     if (_todoListData == null) {
       return;
     }
