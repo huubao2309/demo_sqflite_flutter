@@ -23,7 +23,7 @@ class TodoBloc extends BaseBloc {
     await _todoTable.insertTodo(todo);
 
     // add todo to List
-    _todoListData.add(todo);
+    _todoListData.insert(0, todo);
 
     // push event
     _todoListStreamController.sink.add(_todoListData);
